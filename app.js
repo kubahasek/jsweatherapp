@@ -59,7 +59,6 @@ function formatWeather(weather) {
   } catch (TypeError) {
     loading.innerHTML = "<h1>Wrong city name entered, try again...</h1>";
   }
-
   loading.style.display = "none";
   container.style.visibility = "visible";
 }
