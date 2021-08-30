@@ -48,11 +48,21 @@ function formatWeather(weather) {
       var conditionURL = `http://openweathermap.org/img/wn/${conditionIconID}@2x.png`;
       var temp = stamp["main"]["temp"];
       temp = Math.round(temp);
-      var html = `<div class="weather-info--child">
-        <h1>${time}</h1>
-        <img src="${conditionURL}">
-        <p>${temp}°C</p>
-      </div>
+      var feels_like = stamp["main"]["feels_like"];
+      feels_like = Math.round(feels_like);
+      var humidity = stamp["main"]["humidity"];
+      var windSpeed = stamp["wind"]["speed"];
+      windSpeed = Math.round(windSpeed);
+      var html = `<div class="weather-info--child tooltip">
+                <div class="tooltiptext">
+                <p>Feels like: ${feels_like}°C</p>
+                <p>Humidity: ${humidity}%</p>
+                <p>Wind Speed: ${windSpeed} KM/H</p>
+                </div>
+                <h1>${time}</h1>
+                <img src="${conditionURL}">
+                <p>${temp}</p>
+            </div>
       `;
       container.innerHTML += html;
     });
